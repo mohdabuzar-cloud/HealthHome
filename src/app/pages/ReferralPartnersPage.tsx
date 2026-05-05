@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Phone } from "lucide-react";
+import { ArrowDown, Phone } from "lucide-react";
 import { PageHero } from "../components/shared/PageHero";
 import { SectionLabel } from "../components/shared/SectionLabel";
 import { ReferralForm } from "../components/forms/ReferralForm";
@@ -39,6 +39,24 @@ export function ReferralPartnersPage() {
           <p className="mt-4 max-w-2xl" style={{ color: "rgba(255,255,255,0.8)", fontSize: 18, lineHeight: 1.75 }}>
             We specialize in seamless hospital-to-home transitions. Our referral coordinator follows up within 2 hours — for urgent discharges, same-day assessment is available.
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#referral-form"
+              className="group inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95"
+              style={{ background: "#C49B3C", fontWeight: 700, fontSize: 15, boxShadow: "0 14px 28px rgba(0,0,0,0.18)" }}
+            >
+              Submit Referral
+              <ArrowDown size={18} className="transition-transform group-hover:translate-y-0.5" />
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="inline-flex items-center gap-2 rounded-lg border px-7 py-3.5 text-white transition-colors hover:bg-white/10"
+              style={{ borderColor: "rgba(255,255,255,0.32)", fontWeight: 600, fontSize: 15 }}
+            >
+              <Phone size={18} /> Urgent Referral Call
+            </a>
+          </div>
 
           {/* Info Strip */}
           <div className="mt-8 inline-flex flex-wrap gap-6 px-5 py-4 rounded-xl" style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)" }}>
@@ -116,7 +134,7 @@ export function ReferralPartnersPage() {
       </section>
 
       {/* REFERRAL FORM */}
-      <section className="py-20 px-6 bg-white">
+      <section id="referral-form" className="py-20 px-6 bg-white scroll-mt-28">
         <div className="max-w-2xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }} className="text-center mb-8">
             <SectionLabel centered>Submit a Referral</SectionLabel>
@@ -154,7 +172,7 @@ export function ReferralPartnersPage() {
         </div>
       </section>
 
-      <CTAStrip title="Ready to Refer a Patient?" body="Our referral coordinator is ready to work with you. Submit a referral online or call us directly for urgent situations." primaryLabel="Submit a Referral" primaryTo="/referral-partners#form" />
+      <CTAStrip title="Ready to Refer a Patient?" body="Our referral coordinator is ready to work with you. Submit a referral online or call us directly for urgent situations." primaryLabel="Submit a Referral" primaryTo="/referral-partners#referral-form" />
     </div>
   );
 }
