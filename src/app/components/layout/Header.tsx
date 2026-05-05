@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, Menu, X, ChevronDown, Plus } from "lucide-react";
-import { PHONE, PHONE_TEL, SERVICES, CITIES } from "../../data/constants";
+import { Mail, Phone, Menu, X, ChevronDown, Plus } from "lucide-react";
+import { PHONE, PHONE_TEL, EMAIL, SERVICES, CITIES } from "../../data/constants";
 
 interface HeaderProps {
   onOpenChat?: () => void;
@@ -127,6 +127,16 @@ export function Header({ onOpenChat }: HeaderProps) {
         {/* Right Side */}
         <div className="hidden lg:flex items-center gap-4">
           <a
+            href={`mailto:${EMAIL}`}
+            className="flex items-center gap-2 hover:text-[#C49B3C] transition-colors"
+            style={{ color: "#1C2E4A", fontWeight: 600, fontSize: 15 }}
+            aria-label={`Email ${EMAIL}`}
+            title={EMAIL}
+          >
+            <Mail size={16} />
+            Email
+          </a>
+          <a
             href={`tel:${PHONE_TEL}`}
             className="flex items-center gap-2"
             style={{ color: "#1C2E4A", fontWeight: 600, fontSize: 15 }}
@@ -239,6 +249,9 @@ export function Header({ onOpenChat }: HeaderProps) {
               <div className="pt-6 space-y-3 border-t mt-4">
                 <a href={`tel:${PHONE_TEL}`} className="block text-center py-3 rounded-lg" style={{ background: "#1C2E4A", color: "#fff", fontWeight: 600, fontSize: 18 }}>
                   📞 {PHONE}
+                </a>
+                <a href={`mailto:${EMAIL}`} className="block text-center py-3 rounded-lg border-2" style={{ borderColor: "#1C2E4A", color: "#1C2E4A", fontWeight: 600, fontSize: 15 }}>
+                  Email Us
                 </a>
                 <Link to="/booking" className="block text-center py-3 rounded-lg text-white" style={{ background: "#C49B3C", fontWeight: 600, fontSize: 15 }}>
                   Get Free Assessment
